@@ -1,0 +1,33 @@
+.infoTooltip__picture {
+    height: 120px;
+    width: 120px;
+}
+
+.infoTooltip__message {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
+    margin: 30px auto 0;
+}
+
+.infoTooltip__messageBox {
+    max-width: 358px;
+    max-height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.popup__form_infoToolPopup {
+    padding-top: 0;
+    height: 330px;
+}
+
+.popup_type_infoToolPopup {
+    
+}

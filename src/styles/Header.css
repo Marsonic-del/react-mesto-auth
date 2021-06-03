@@ -1,0 +1,33 @@
+.header__link {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: right;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: opacity linear 0.25s;
+    cursor: pointer;
+}
+
+.header__link:hover {
+    opacity: 0.6;
+}
+
+.header__link_hidden {
+    display: none;
+}
+
+.header__userInfo {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: right;
+    color: #FFFFFF;
+    margin: 0 24px;
+}
+
+.header__box {
+    display: inherit;
+}
