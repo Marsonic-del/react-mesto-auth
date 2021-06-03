@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Register.css';
 
+// Через пропс onRegister передаем введенные пользователем email
+// и пароль функции handleRegister из Арр, через которую управляется процес 
+// авторизации
 function Register({onRegister}) {
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');

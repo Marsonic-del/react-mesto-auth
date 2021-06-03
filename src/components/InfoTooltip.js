@@ -3,6 +3,9 @@ import imageSucces from '../images/Union.svg';
 import errorImage from '../images/errorImage.svg';
 import '../styles/InfoTooltip.css';
 
+// Через пропс isRegError передаем из Арр значение стейта isRegErrorPopupOpen,
+// ели ее значение true - ответ сервера сообщил об ошибке и наоборот.
+// handleClickClose передает одноименную функцию из Арр для закрытия попапов.
 function InfoTooltip({isOpen, handleClickClose, isRegError}) {
     return(
         <section className={`popup popup_type_infoToolPopup ${isOpen && "popup_opened"} `} onClick={handleClickClose} >

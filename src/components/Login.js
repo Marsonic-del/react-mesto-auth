@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import '../styles/Login.css';
 
+// Через пропс onAuthorize передаем введенные пользователем email
+// и пароль функции handleAuthorize из Арр, через которую управляется процес 
+// авторизации
 function Login({onAuthorize}) {
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if(email && password) {
