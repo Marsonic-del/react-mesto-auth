@@ -152,7 +152,6 @@ function App() {
 // В противном случае показываем попап с ошибкой.
 // Пробрасывается в компонент Register через пропс onRegister. 
   function handleRegister(password,email) {
-    console.log(password,email )
     auth.register(password,email)
       .then((res) => {
         if(res) {
@@ -235,11 +234,11 @@ function App() {
   return (
     <div className="App">
         <div className="page">
-          <Header loggedIn={loggedIn} userInfo={userInfo} handleExitClick={handleExit} />
-          <Switch>
-            <CurrentUserContext.Provider value={currentUser}>
+          <CurrentUserContext.Provider value={currentUser}>
+            <Header loggedIn={loggedIn} userInfo={userInfo} handleExitClick={handleExit} />
+            <Switch>
               <ProtectedRoute
-                path="/"
+                exact path="/"
                 loggedIn={loggedIn}
                 component={Main}
                 onEditProfile={handleEditProfileClick} 
@@ -256,24 +255,22 @@ function App() {
               <Route path="/sign-up">
                 <Register onRegister={handleRegister} />
               </Route>
-                 
-                <Footer/>
+            </Switch>  
+              <Footer/>
 
-                <InfoTooltip isOpen={isRegPopupOpen} handleClickClose={handleClickClose} isRegError={isRegErrorPopupOpen} />
+              <InfoTooltip isOpen={isRegPopupOpen} handleClickClose={handleClickClose} isRegError={isRegErrorPopupOpen} />
 
-                <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} handleClickClose={handleClickClose} onAddPlace={handleAddPlaceSubmit} />
+              <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} handleClickClose={handleClickClose} onAddPlace={handleAddPlaceSubmit} />
             
-                <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} handleClickClose={handleClickClose} />
+              <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} handleClickClose={handleClickClose} />
 
-                <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} handleClickClose={handleClickClose} />
+              <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} handleClickClose={handleClickClose} />
             
-
-                <PopupWithForm isOpen={isRemovePopupOpen} onClose={closeAllPopups}  handleClickClose={handleClickClose} name="remove" title="Вы уверены?" buttonName="Да" >   
+              <PopupWithForm isOpen={isRemovePopupOpen} onClose={closeAllPopups}  handleClickClose={handleClickClose} name="remove" title="Вы уверены?" buttonName="Да" >   
                 </PopupWithForm>
 
-                <ImagePopup onClose={closeAllPopups} name="image" isOpen={isImagePopupOpen}  handleClickClose={handleClickClose} card={selectedCard} />
-            </CurrentUserContext.Provider>
-          </Switch>
+              <ImagePopup onClose={closeAllPopups} name="image" isOpen={isImagePopupOpen}  handleClickClose={handleClickClose} card={selectedCard} />
+          </CurrentUserContext.Provider>
         </div>        
     </div>
   );
