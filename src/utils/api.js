@@ -73,7 +73,7 @@ class Api {
     }
   }
   const api = new Api({
-    address: 'https://mesto.nomoreparties.co/v1/cohort-22',
+    address: 'https://mymesto.vladimir.nomoredomains.work/',
     token: '06d63aad-75bc-4641-be17-ed6babb8063a',
   })
   
