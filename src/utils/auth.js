@@ -9,7 +9,7 @@ function checkResponse(res) {
 
 // Запрос на регистрацию.
 export const register = (password, email) => {
-  return fetch(`${BASE_URL}/signup`, {
+  return fetch(`https://api.mymesto.vladimir.nomoredomains.monster/signup`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ export const authorize = (password, email) => {
   // Для получения данных пользователя если токен с localStorage тот же что 
   // и на сервере.
   export const getContent = (token) => {
-    return fetch(`${BASE_URL}/users/me`, {
+    return fetch(`https://api.mymesto.vladimir.nomoredomains.monster/users/me`, {
       method: 'GET',
       headers: {
         "Content-Type": "application/json",
