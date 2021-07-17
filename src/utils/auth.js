@@ -23,7 +23,7 @@ export const register = (password, email) => {
 
 // Запрос на аутентификацию
 export const authorize = (password, email) => {
-    return fetch(`${BASE_URL}/signin`, {
+    return fetch(`https://api.mymesto.vladimir.nomoredomains.monster/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
