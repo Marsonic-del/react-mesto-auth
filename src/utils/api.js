@@ -73,8 +73,8 @@ class Api {
     }
   }
   const api = new Api({
-    address: 'https://mymesto.vladimir.nomoredomains.work/',
-    token: '06d63aad-75bc-4641-be17-ed6babb8063a',
+    address: 'api.mymesto.vladimir.nomoredomains.monster',
+    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGYxZjhhYjVhYzdlNzEzYzUzMjNjY2UiLCJpYXQiOjE2MjY0NzA2MjcsImV4cCI6MTYyNzA3NTQyN30.iv1aw-JH-DVPYt6o_VOjlhtqqKSj6L03EUkw_dkl3vo',
   })
   
   export default api;
