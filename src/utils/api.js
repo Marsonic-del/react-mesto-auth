@@ -3,7 +3,7 @@ class Api {
       this._address = address;
       this._token = token;
       this._headers = {
-        authorization: this._token,
+        authorization: `Bearer ${this._token}`,
         'Content-Type': 'application/json',
       }
     }
@@ -56,7 +56,7 @@ class Api {
     }
   
     changeLikeCardStatus(idCard, isLiked) {
-      return fetch(`${this._address}/cards/likes/${idCard}`, {
+      return fetch(`${this._address}/cards/${idCard}/likes`, {
         method: isLiked ? 'DELETE' : 'PUT',
         headers: this._headers,
       }).then(this._checkResponse);
@@ -74,7 +74,7 @@ class Api {
   }
   const api = new Api({
     address: 'https://api.mymesto.vladimir.nomoredomains.monster',
-    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGYxZjhhYjVhYzdlNzEzYzUzMjNjY2UiLCJpYXQiOjE2MjY0NzA2MjcsImV4cCI6MTYyNzA3NTQyN30.iv1aw-JH-DVPYt6o_VOjlhtqqKSj6L03EUkw_dkl3vo',
+    token: localStorage.getItem('jwt'),
   })
   
   export default api;

@@ -35,21 +35,21 @@ function App() {
   useEffect(() => {
     api.getInitialCards()
       .then(data => {
-        setCards(data)
+        setCards(data.data)
       })
       .catch((err) => console.log(err));
   }, [])
-
+  console.log('cards', cards)
   // Функция для добавления/удаления лайков
   // Используется при клике на кнопку лайк карточки
   function handleCardLike({likes, _id}) { // Аргументы функции: лайки и id карточки.
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = likes.some(i => i._id === currentUser._id);
-    
+    const isLiked = likes.some(like => like._id === currentUser.data._id);
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(_id, isLiked)
     .then((newCard) => {
-        setCards((cards) => cards.map((c) => c._id === _id ? newCard : c));
+      console.log('newCard', newCard)
+      setCards((cards) => cards.map(card => {return card._id === _id ? newCard.data : card}));
     })
     .catch((err) => console.log(err));
 }
@@ -66,7 +66,7 @@ function App() {
     renderLoading(submitButtonRef, true);
     api.addCard(newPlace)
       .then(newCard => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => console.log(err))
